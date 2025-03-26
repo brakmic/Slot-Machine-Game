@@ -1,6 +1,6 @@
-import { Bank, IBankRepository } from '@spin-win/domain';
-import { IRepository } from '@spin-win/infrastructure';
-import { BankModel } from '@spin-win/db-models';
+import { Bank, IBankRepository } from '@domain';
+import { IRepository } from '@infrastructure';
+import { BankModel } from '@db-models';
 
 export class BankWriteRepository implements IBankRepository {
   constructor(private readonly repo: IRepository<BankModel>) {}

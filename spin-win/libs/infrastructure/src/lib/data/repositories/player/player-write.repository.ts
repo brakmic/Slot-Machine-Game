@@ -1,6 +1,6 @@
-import { Player, IPlayerRepository } from '@spin-win/domain';
-import { IRepository } from '@spin-win/infrastructure';
-import { PlayerModel } from '@spin-win/db-models';
+import { Player, IPlayerRepository } from '@domain';
+import { IRepository } from '@infrastructure';
+import { PlayerModel } from '@db-models';
 
 export class PlayerWriteRepository implements IPlayerRepository {
   constructor(private readonly repo: IRepository<PlayerModel>) {}

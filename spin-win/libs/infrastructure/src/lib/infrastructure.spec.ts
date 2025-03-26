@@ -1,6 +1,6 @@
 import * as infrastructure from './infrastructure';
 
-describe('infrastructure', () => {
+describe('@infrastructure', () => {
   it('should work', () => {
     expect(infrastructure).toBeTruthy();
   });

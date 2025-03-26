@@ -1,6 +1,6 @@
 import { createConnection, Connection, ConnectionOptions, ObjectType, QueryRunner } from 'typeorm';
-import { IDatabaseConfig, IUnitOfWork, IRepository } from '@spin-win/infrastructure';
-import { PlayerModel, SpinModel, SlotModel, BankModel } from '@spin-win/db-models';
+import { IDatabaseConfig, IUnitOfWork, IRepository } from '@infrastructure';
+import { PlayerModel, SpinModel, SlotModel, BankModel, LeaderboardEntryModel } from '@db-models';
 
 class Database implements IUnitOfWork {
   private connection?: Connection;
@@ -14,7 +14,13 @@ class Database implements IUnitOfWork {
       username: config?.username || undefined,
       password: config?.password || undefined,
       database: config?.database || 'database.sqlite',
-      entities: [PlayerModel, SpinModel, SlotModel, BankModel],
+      entities: [
+        PlayerModel,
+        SpinModel,
+        SlotModel,
+        BankModel,
+        LeaderboardEntryModel
+      ],
       synchronize: config?.synchronize || true,
     };
 
