@@ -1,0 +1,31 @@
+<div class="leaderboard-container">
+  <h2>Leaderboard</h2>
+  
+  @if (loading) {
+    <div class="loading-spinner">Loading...</div>
+  } @else if (error) {
+    <div class="error-message">
+      {{ error }}
+      <button (click)="refreshLeaderboard()">Try Again</button>
+    </div>
+  } @else {
+    <div class="leaderboard">
+      @for (player of topPlayers$ | async; track player.playerId) {
+        <div class="leaderboard-entry" [class.top3]="player.rank <= 3">
+          <div class="rank">{{ player.rank }}</div>
+          <div class="name">{{ player.playerName }}</div>
+          <div class="stats">
+            <div class="winnings">{{ player.totalWinnings | currency }}</div>
+            <div class="spins">{{ player.totalSpins }} spins</div>
+          </div>
+        </div>
+      } @empty {
+        <div class="empty-state">No players yet. Be the first!</div>
+      }
+    </div>
+  }
+  
+  <button class="refresh-button" (click)="refreshLeaderboard()" [disabled]="loading">
+    Refresh
+  </button>
+</div>

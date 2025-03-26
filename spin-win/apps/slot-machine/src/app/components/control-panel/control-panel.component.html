@@ -1,0 +1,24 @@
+<div class="control-panel">
+  <div class="bet-controls">
+    <button class="bet-button decrease" (click)="decreaseBet()" [disabled]="disabled">-</button>
+    <div class="bet-amount">
+      <span>BET</span>
+      <strong>{{ betAmount | currency }}</strong>
+    </div>
+    <button class="bet-button increase" (click)="increaseBet()" [disabled]="disabled">+</button>
+  </div>
+
+  <button class="spin-button" [disabled]="disabled" (click)="onSpin()">
+    SPIN
+  </button>
+
+  <div class="bet-options">
+    <button class="bet-option" 
+            *ngFor="let option of betOptions" 
+            [class.active]="betAmount === option"
+            (click)="setBetAmount(option)" 
+            [disabled]="disabled">
+      {{ option | currency }}
+    </button>
+  </div>
+</div>

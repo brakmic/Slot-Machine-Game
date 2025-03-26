@@ -1,0 +1,56 @@
+<div class="slot-machine">
+  <div class="slot-machine-cabinet">
+    <div class="slot-header">
+      <div class="slot-title">SPIN WIN</div>
+      <div class="slot-lights" [class.active]="lightEffects"></div>
+      <button class="sound-toggle" (click)="toggleSound()">
+        @if (soundMuted$ | async) {
+          🔇
+        } @else {
+          🔊
+        }
+      </button>
+    </div>
+
+    <div class="slot-display">
+      <!-- Win effect overlay -->
+      @if (showWinEffect) {
+        <div class="win-effect">
+          <div class="particles"></div>
+          <div class="win-text">WIN!</div>
+        </div>
+      }
+
+      <!-- Reels display -->
+      <div class="reels-container" [class.spinning]="spinning">
+        @for (reelSymbols of visibleSymbols; track $index) {
+          <div class="reel">
+            @for (symbol of reelSymbols; track $index) {
+              <div class="symbol">{{ symbol }}</div>
+            }
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="slot-message" [class]="messageClass">{{ spinMessage }}</div>
+
+    <!-- Player info and controls -->
+    @if (player$ | async; as player) {
+      <div class="player-info">
+        <div class="balance">Balance: {{ player.balance | currency }}</div>
+      </div>
+    }
+
+    <div class="slot-controls">
+      <div class="bet-controls">
+        <button (click)="decreaseBet()" [disabled]="spinning || betAmount <= minBet">-</button>
+        <div class="bet-amount">Bet: {{ betAmount | currency }}</div>
+        <button (click)="increaseBet()" [disabled]="spinning || betAmount >= maxBet">+</button>
+      </div>
+      
+      <button class="max-bet" (click)="maxBetClick()" [disabled]="spinning">MAX BET</button>
+      <button class="spin-button" (click)="spin()" [disabled]="spinning">SPIN</button>
+    </div>
+  </div>
+</div>

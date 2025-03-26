@@ -1,0 +1,9 @@
+<div class="slot-reel">
+  <div class="reel-window">
+    <div #reelStrip class="reel-strip">
+      @for (symbol of visibleSymbols; track $index) {
+        <div class="symbol">{{ symbol }}</div>
+      }
+    </div>
+  </div>
+</div>

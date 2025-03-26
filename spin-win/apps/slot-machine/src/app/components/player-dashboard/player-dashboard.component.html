@@ -1,0 +1,39 @@
+<div class="player-dashboard">
+  <h2 class="dashboard-title">Player Dashboard</h2>
+  
+  @if (loading) {
+    <div class="loading-indicator">Loading...</div>
+  } @else if (player$ | async; as player) {
+    <div class="player-info">
+      <div class="player-name">{{ player.name }}</div>
+      <div class="player-balance">${{ player.balance }}</div>
+    </div>
+    
+    <div class="deposit-section">
+      <h3>Add Funds</h3>
+      
+      @if (errorMessage) {
+        <div class="error-message">{{ errorMessage }}</div>
+      }
+      
+      @if (successMessage) {
+        <div class="success-message">{{ successMessage }}</div>
+      }
+      
+      <div class="amount-controls">
+        <button class="amount-btn decrease" (click)="decreaseDeposit()" [disabled]="depositAmount <= 100">-</button>
+        <div class="amount-display">${{ depositAmount }}</div>
+        <button class="amount-btn increase" (click)="increaseDeposit()">+</button>
+      </div>
+      
+      <button class="deposit-btn" (click)="deposit()" [disabled]="loading || depositAmount <= 0">
+        Deposit
+      </button>
+    </div>
+  } @else {
+    <div class="error-state">
+      <p>Unable to load player data</p>
+      <button (click)="loadPlayer()">Retry</button>
+    </div>
+  }
+</div>
