@@ -1,14 +1,15 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { NxWelcomeComponent } from './nx-welcome.component';
+import { HttpClientModule } from '@angular/common/http';
+import { SlotMachineComponent } from './components/slot-machine/slot-machine.component';
+import { LeaderboardComponent } from './components/leaderboard/leaderboard.component';
 
 @Component({
   standalone: true,
-  imports: [NxWelcomeComponent, RouterModule],
+  imports: [RouterModule, HttpClientModule, SlotMachineComponent, LeaderboardComponent],
   selector: 'spin-win-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  styleUrl: './app.component.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
-  title = 'slot-machine';
-}
+export class AppComponent {}
