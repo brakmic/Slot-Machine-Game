@@ -1,4 +1,4 @@
-import { Bank } from "@spin-win/domain";
+import { Bank } from "@domain";
 
 export interface IBankRepository {
   create(bank: Bank): Promise<Bank>;

@@ -1,4 +1,4 @@
-import { Player, PlayerAggregate, IPlayerRepository } from '@spin-win/domain';
+import { Player, PlayerAggregate, IPlayerRepository } from '@domain';
 
 export class PlayerDomainService {
   constructor(

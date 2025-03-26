@@ -1,5 +1,5 @@
 import { EventPublisher } from '@nestjs/cqrs';
-import { Bank, BankAggregate, BankCreatedSuccessfullyEvent, BankCreationFailedEvent, IBankRepository } from '@spin-win/domain';
+import { Bank, BankAggregate, BankCreatedSuccessfullyEvent, BankCreationFailedEvent, IBankRepository } from '@domain';
 
 export class BankDomainService {
   constructor(

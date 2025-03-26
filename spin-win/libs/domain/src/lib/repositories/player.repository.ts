@@ -1,4 +1,4 @@
-import { Player } from "@spin-win/domain";
+import { Player } from "@domain";
 
 export interface IPlayerRepository {
   create(player: Player): Promise<Player>;
