@@ -8,11 +8,11 @@ import {
   CreateBankHandler,
   BankCreatedSuccessfullyHandler,
   BankCreationFailedHandler
-} from '@bank/bank.service';
-import { DatabaseModule } from 'apps/slot-machine-api/src/common/persistence/database/database.module';
-import { BankReadRepository, BankWriteRepository } from '@spin-win/infrastructure';
-import { BankModel } from '@spin-win/db-models';
-import { IBankRepository, BankDomainService } from '@spin-win/domain';
+} from './bank.service';
+import { DatabaseModule } from '../common/persistence/database/database.module';
+import { BankReadRepository, BankWriteRepository } from '@infrastructure';
+import { BankModel } from '@db-models';
+import { IBankRepository, BankDomainService } from '@domain';
 
 
 @Module({
@@ -42,5 +42,6 @@ import { IBankRepository, BankDomainService } from '@spin-win/domain';
       inject: ['BankWriteRepository', EventPublisher],
     },
   ],
+  exports: ['BankDomainService'],
 })
 export class BankModule {}

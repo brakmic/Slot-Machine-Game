@@ -2,10 +2,10 @@ import { Injectable, Inject, OnModuleInit } from '@nestjs/common';
 import { ICommandHandler, CommandHandler,
   IQueryHandler, QueryHandler, EventsHandler, IEventHandler } from '@nestjs/cqrs';
 import { BankReceivedDepositEvent, BankDomainService, Bank,
-  BankCreatedSuccessfullyEvent, BankCreationFailedEvent } from '@spin-win/domain';
-import { IRepository } from '@spin-win/infrastructure';
-import { CreateBankCommand, UpdateBankCommand } from '@bank/commands/bank.commands';
-import { GetBankQuery } from '@bank/queries/bank.queries';
+  BankCreatedSuccessfullyEvent, BankCreationFailedEvent } from '@domain';
+import { IRepository } from '@infrastructure';
+import { CreateBankCommand, UpdateBankCommand } from './commands/bank.commands';
+import { GetBankQuery } from './queries/bank.queries';
 
 @Injectable()
 @CommandHandler(CreateBankCommand)

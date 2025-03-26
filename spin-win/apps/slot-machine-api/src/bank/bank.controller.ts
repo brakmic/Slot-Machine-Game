@@ -1,9 +1,9 @@
 import { Controller, Get, Put, Body, Post, HttpException, HttpStatus } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
-import { GetBankQuery } from '@bank/queries/bank.queries';
-import { CreateBankCommand, UpdateBankCommand } from '@bank/commands/bank.commands';
-import { CreateBankDto } from '@bank/dto/create-bank.dto';
-import { UpdateBankDto } from '@bank/dto/update-bank.dto';
+import { GetBankQuery } from './queries/bank.queries';
+import { CreateBankCommand, UpdateBankCommand } from './commands/bank.commands';
+import { CreateBankDto } from './dto/create-bank.dto';
+import { UpdateBankDto } from './dto/update-bank.dto';
 import { ApiTags } from '@nestjs/swagger';
 
 @ApiTags('bank')

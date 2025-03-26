@@ -1,4 +1,4 @@
-import { IBankDto } from "@spin-win/infrastructure";
+import { IBankDto } from "@infrastructure";
 
 export class ReadBankDto implements IBankDto {
   constructor(public id: number, public balance: number) {}

@@ -5,9 +5,9 @@ import { CreatePlayerHandler, DepositMoneyHandler,
   GetAllPlayersHandler, GetPlayerByIdHandler,
   DeletePlayerHandler } from '@player/player.service';
 import { DatabaseModule } from 'apps/slot-machine-api/src/common/persistence/database/database.module';
-import { PlayerReadRepository, PlayerWriteRepository } from '@spin-win/infrastructure';
-import { PlayerModel } from '@spin-win/db-models';
-import { IPlayerRepository, PlayerDomainService } from '@spin-win/domain';
+import { PlayerReadRepository, PlayerWriteRepository } from '@infrastructure';
+import { PlayerModel } from '@db-models';
+import { IPlayerRepository, PlayerDomainService } from '@domain';
 
 
 @Module({
@@ -35,5 +35,6 @@ import { IPlayerRepository, PlayerDomainService } from '@spin-win/domain';
       inject: ['PlayerWriteRepository'],
     },
   ],
+  exports: ['PlayerDomainService'],
 })
 export class PlayerModule {}
