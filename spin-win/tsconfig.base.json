@@ -10,22 +10,48 @@
     "importHelpers": true,
     "target": "es2015",
     "module": "esnext",
-    "lib": ["es2020", "dom"],
+    "lib": [
+      "es2020",
+      "dom"
+    ],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@common/*": ["apps/slot-machine-api/src/common/*"],
-      "@bank/*": ["apps/slot-machine-api/src/bank/*"],
-      "@leaderboard/*": ["apps/slot-machine-api/src/leaderboard/*"],
-      "@player/*": ["apps/slot-machine-api/src/player/*"],
-      "@slot/*": ["apps/slot-machine-api/src/slot/*"],
-      "@database/*": ["apps/slot-machine-api/src/database/*"],
-      "@spin-win/db-models": ["libs/db-models/src/index.ts"],
-      "@spin-win/domain": ["libs/domain/src/index.ts"],
-      "@spin-win/infrastructure": ["libs/infrastructure/src/index.ts"],
-      "@spin/*": ["apps/slot-machine-api/src/spin/*"]
+      "@bank/*": [
+        "apps/slot-machine-api/src/bank/*"
+      ],
+      "@common/*": [
+        "apps/slot-machine-api/src/common/*"
+      ],
+      "@database/*": [
+        "apps/slot-machine-api/src/database/*"
+      ],
+      "@leaderboard/*": [
+        "apps/slot-machine-api/src/leaderboard/*"
+      ],
+      "@player/*": [
+        "apps/slot-machine-api/src/player/*"
+      ],
+      "@slot/*": [
+        "apps/slot-machine-api/src/slot/*"
+      ],
+      "@spin/*": [
+        "apps/slot-machine-api/src/spin/*"
+      ],
+      "@db-models": [
+        "libs/db-models/src/index.ts"
+      ],
+      "@domain": [
+        "libs/domain/src/index.ts"
+      ],
+      "@infrastructure": [
+        "libs/infrastructure/src/index.ts"
+      ],
     }
   },
-  "exclude": ["node_modules", "tmp"]
+  "exclude": [
+    "node_modules",
+    "tmp"
+  ]
 }

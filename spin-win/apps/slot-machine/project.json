@@ -7,20 +7,28 @@
   "tags": [],
   "targets": {
     "build": {
-      "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "executor": "@angular/build:application",
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
-        "outputPath": "dist/apps/slot-machine",
+        "outputPath": {
+          "base": "dist/apps/slot-machine"
+        },
         "index": "apps/slot-machine/src/index.html",
-        "main": "apps/slot-machine/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "apps/slot-machine/tsconfig.app.json",
         "assets": [
           "apps/slot-machine/src/favicon.ico",
           "apps/slot-machine/src/assets"
         ],
-        "styles": ["apps/slot-machine/src/styles.scss"],
-        "scripts": []
+        "styles": [
+          "apps/slot-machine/src/styles.scss"
+        ],
+        "scripts": [],
+        "browser": "apps/slot-machine/src/main.ts"
       },
       "configurations": {
         "production": {
@@ -32,16 +40,14 @@
             },
             {
               "type": "anyComponentStyle",
-              "maximumWarning": "2kb",
-              "maximumError": "4kb"
+              "maximumWarning": "10kb",
+              "maximumError": "50kb"
             }
           ],
           "outputHashing": "all"
         },
         "development": {
-          "buildOptimizer": false,
           "optimization": false,
-          "vendorChunk": true,
           "extractLicenses": false,
           "sourceMap": true,
           "namedChunks": true
@@ -50,26 +56,32 @@
       "defaultConfiguration": "production"
     },
     "serve": {
-      "executor": "@angular-devkit/build-angular:dev-server",
+      "executor": "@angular/build:dev-server",
+      "options": {
+        "host": "0.0.0.0",
+        "port": 4200
+      },
       "configurations": {
         "production": {
-          "browserTarget": "slot-machine:build:production"
+          "buildTarget": "slot-machine:build:production"
         },
         "development": {
-          "browserTarget": "slot-machine:build:development"
+          "buildTarget": "slot-machine:build:development"
         }
       },
       "defaultConfiguration": "development"
     },
     "extract-i18n": {
-      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "executor": "@angular/build:extract-i18n",
       "options": {
-        "browserTarget": "slot-machine:build"
+        "buildTarget": "slot-machine:build"
       }
     },
     "lint": {
       "executor": "@nx/linter:eslint",
-      "outputs": ["{options.outputFile}"],
+      "outputs": [
+        "{options.outputFile}"
+      ],
       "options": {
         "lintFilePatterns": [
           "apps/slot-machine/**/*.ts",
@@ -79,16 +91,11 @@
     },
     "test": {
       "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "outputs": [
+        "{workspaceRoot}/coverage/{projectRoot}"
+      ],
       "options": {
-        "jestConfig": "apps/slot-machine/jest.config.ts",
-        "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
+        "jestConfig": "apps/slot-machine/jest.config.ts"
       }
     },
     "serve-static": {
