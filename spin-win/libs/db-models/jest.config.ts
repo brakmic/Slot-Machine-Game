@@ -1,6 +1,6 @@
 /* eslint-disable */
 export default {
-  displayName: 'db-models',
+  displayName: '@db-models',
   preset: '../../jest.preset.js',
   testEnvironment: 'node',
   transform: {

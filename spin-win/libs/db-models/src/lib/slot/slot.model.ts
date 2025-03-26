@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
-import { Slot } from '@spin-win/domain';
+import { Slot } from '@domain';
 
 @Entity()
 export class SlotModel {

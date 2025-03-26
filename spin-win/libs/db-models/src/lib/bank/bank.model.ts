@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
-import { Bank } from '@spin-win/domain';
+import { Bank } from '@domain';
 
 
 @Entity()
